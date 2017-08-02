@@ -120,7 +120,7 @@ def api_1_0_results():
     return jsonify(mainj)
 
 
-@app.route('/api/v1.0/stopsearch', methods=["POST"])
+@app.route('/api/v1.0/stopsearch', methods=["GET"])
 def api_1_0_stopsearch():
     uuid = request.args.get("uuid")
     job = db.session.query(SearchJob).filter(SearchJob.uuid == uuid).first()

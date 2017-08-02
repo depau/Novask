@@ -1,0 +1,48 @@
+<div class="input-group input-group-fake">
+    <input type="text" id="input-query" data-tooltip="tooltip-error" data-trigger="manual"
+           class="form-control" placeholder="What are you looking for?"
+           value="{{ query if query else "" }}">
+    <div class="input-group-btn">
+        <button id="btn-category" type="button" class="btn btn-default btn-inputlike dropdown-toggle"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                data-category="{{ category }}">
+            <span class="name">Category</span> <span class="caret"></span></button>
+        <div class="dropdown-menu dropdown-menu-right" id="dropdown-category">
+            <a href="#" class="dropdown-item {{ "active" if category == "all" else "" }}"
+               data-category="all">All</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item {{ "active" if category == "anime" else "" }}"
+               data-category="anime">Anime</a>
+            <a href="#" class="dropdown-item {{ "active" if category == "books" else "" }}"
+               data-category="books">Books</a>
+            <a href="#" class="dropdown-item {{ "active" if category == "games" else "" }}"
+               data-category="games">Games</a>
+            <a href="#" class="dropdown-item {{ "active" if category == "movies" else "" }}"
+               data-category="movies">Movies</a>
+            <a href="#" class="dropdown-item {{ "active" if category == "music" else "" }}"
+               data-category="music">Music</a>
+            <a href="#" class="dropdown-item {{ "active" if category == "pictures" else "" }}"
+               data-category="pictures">Pictures</a>
+            <a href="#" class="dropdown-item {{ "active" if category == "software" else "" }}"
+               data-category="software">Software</a>
+            <a href="#" class="dropdown-item {{ "active" if category == "tv" else "" }}"
+               data-category="tv">TV</a>
+        </div>
+    </div>
+    <div class="input-group-btn">
+        <button id="btn-engines" type="button" data-tooltip="tooltip-error"
+                class="btn btn-default btn-inputlike dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">Engines <span
+                class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" id="dropdown-engines">
+            {% for e in sorted(engines.keys()) %}
+                <li><a href="#" tabIndex="-1" class="dropdown-item" title="{{ engines[e]["url"] }}"><input type="checkbox" class="engine-checkbox" name="{{ e }}" {{ "checked" if e not in dis_engines else "" }}/>&nbsp;<img src="http://www.google.com/s2/favicons?domain={{ engines[e]["url"].split("/")[2] }}">&nbsp;{{ engines[e]["name"] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <span class="input-group-btn">
+        <button class="btn btn-outline-success" type="button" id="btn-search">Search <i
+                class="fa fa-search"></i></button>
+    </span>
+</div>

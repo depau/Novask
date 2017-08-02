@@ -1,0 +1,3 @@
+[submodule "novask/static/tablesorter"]
+	path = novask/static/tablesorter
+	url = https://github.com/Mottie/tablesorter.git

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+</head>
+<body>
+
+<div class="container fill tight">
+    <section id="search-message" class="fill">
+        <div class="row align-items-center fill">
+            <div class="col">
+                <div>
+                    <h1 class="big-title">
+                        Novask Torrent Search
+                    </h1>
+                </div>
+                <div>
+                    {% include 'searchbox.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% include 'footer.html' %}
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

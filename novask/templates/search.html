@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+</head>
+<body>
+
+<header id="search">
+    <nav class="navbar navbar-light navbar-shadow-anim fixed-top navbar-toggleable-md bg-faded">
+        <a class="navbar-brand" href="/">Novask</a>
+    {% include 'searchbox.html' %}
+    </nav>
+</header>
+
+
+<div class="container fill">
+    {#    <header>#}
+    {#        <div class="row">#}
+    {#            <div class="col-lg-12">#}
+    {#                <h1>Novask Torrent Search</h1>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </header>#}
+
+    <section id="results">
+        <div class="navbar-filler"></div>
+        <div class="sort-helper">
+            <div class="row justify-content-center">
+                <div class="col col-12 col-md-auto">
+                    <span>Sorting: </span>
+                    <button class="btn btn-default" type="button" onclick="resetSort()">Reset</button>
+                </div>
+                <div class="col col-12 col-md-auto">
+                    <span>Filter: </span>
+                    <button class="btn btn-default" type="button" onclick="resetFilters()">Reset</button>
+                    <button class="btn btn-default" type="button" onclick="seedsGT10()">Seeds &gt; 10</button>
+                    <button class="btn btn-default" type="button" onclick="leechLT10()">Leech &lt; 10</button>
+                    <button class="btn btn-default" type="button" onclick="queryInName()">Query in name</button>
+                </div>
+            </div>
+        </div>
+
+        <table id="results-table" class="tablesorter tablesorter-bootstrap tablesorter-pager">
+            <thead>
+            <tr>
+                <th data-sorter="false"><i class="fa fa-download"></i></th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Seeds</th>
+                <th>Leech</th>
+                <th>Source</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td><i class="fa fa-download"></i></td>
+                <td>Name</td>
+                <td>Size</td>
+                <td>Seeds</td>
+                <td>Leech</td>
+                <td>Source</td>
+            </tr>
+            <tr>
+                <th colspan="6" class="ts-pager">
+                    <div class="form-inline">
+                        <div class="btn-group btn-group-sm mx-1" role="group">
+                            <button type="button" class="btn btn-secondary first" title="first">⇤</button>
+                            <button type="button" class="btn btn-secondary prev" title="previous">←</button>
+                        </div>
+                        <span class="pagedisplay"></span>
+                        <div class="btn-group btn-group-sm mx-1" role="group">
+                            <button type="button" class="btn btn-secondary next" title="next">→</button>
+                            <button type="button" class="btn btn-secondary last" title="last">⇥</button>
+                        </div>
+                        <select class="form-control-sm custom-select px-1 pagesize" title="Select page size">
+                            <option selected="selected" value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="all">All Rows</option>
+                        </select>
+                        <select class="form-control-sm custom-select px-4 mx-1 pagenum"
+                                title="Select page number"></select>
+                    </div>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </section>
+    <section id="search-message" class="fill">
+        <div class="row align-items-center fill">
+            <div class="col">
+                <h1 class="search-message">
+                    Search something
+                </h1>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+{% include 'footer.html' %}
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+</body>
+</html>

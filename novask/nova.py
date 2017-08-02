@@ -50,11 +50,13 @@ def search(query, engines="all", category="all", engines_dirs=[], progress=False
     print(["nova6"] + p + get_dir_args(engines_dirs) + [engines, category] + query.split())
     p = subprocess.Popen(["nova6"] + p + get_dir_args(engines_dirs) + [engines, category] + query.split(), stdout=subprocess.PIPE)
 
-    for res in p.stdout.readlines():
+    res = p.stdout.readline()
+    while res:
         try:
             yield search_result_dict(res.decode())
         except IndexError:
-            continue
+            pass
+        res = p.stdout.readline()
 
     p.wait()
 

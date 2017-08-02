@@ -19,6 +19,7 @@ def run_search(uuid, engines, category, *query):
     j.engines = engines
     db.session.add(j)
     db.session.commit()
+    db.session.flush()
 
     try:
         dirs = get_engines_dirs()
@@ -32,11 +33,13 @@ def run_search(uuid, engines, category, *query):
                 db.session.add(r)
             # Commit every time so results are available immediately
             db.session.commit()
+            db.session.flush()
             count += 1
     finally:
         j.done = True
         j.time_finished = datetime.datetime.utcnow()
         db.session.commit()
+        db.session.flush()
 
 def main():
     import sys

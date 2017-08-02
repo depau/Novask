@@ -5,4 +5,4 @@ class DefaultSettings(object):
     ENGINES_DIR = "engines/"
     SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    NOVASK_SEARCH_TIMEOUT = 120
+    NOVASK_SEARCH_TIMEOUT = 300

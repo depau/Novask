@@ -48,7 +48,9 @@ def search_result_dict(line):
 def search(query, engines="all", category="all", engines_dirs=[], progress=False):
     p = ["-p"] if progress else []
     print(["nova6"] + p + get_dir_args(engines_dirs) + [engines, category] + query.split())
-    p = subprocess.Popen(["nova6"] + p + get_dir_args(engines_dirs) + [engines, category] + query.split(), stdout=subprocess.PIPE)
+    env = os.environ.copy()
+    env["PYTHONUNBUFFERED"] = "true"
+    p = subprocess.Popen(["nova6"] + p + get_dir_args(engines_dirs) + [engines, category] + query.split(), stdout=subprocess.PIPE, env=env)
 
     res = p.stdout.readline()
     while res:

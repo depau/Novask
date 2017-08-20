@@ -21,9 +21,19 @@ If you install Novask on a publicly accessible web server, always make sure it's
 Table of Contents
 =================
 
-   * [Novask Torrent Search](#novask-torrent-search)
-      * [Testing](#testing)
-      * [Deploying](#deploying)
+* [Usage](#usage)
+* [Testing](#testing)
+* [Deploying](#deploying)
+
+## Usage
+
+Simply go to Novask's home page and start a search, just like you would on qBittorrent.
+
+Search may take a few minutes, so be patient while results are loaded.
+
+Notice that when a search is started, the URL changes to something like `/search/?uuid=<stuff>`. Search results are stored in the database, so you can get the results of a previous search using that URL. 
+
+Beware that search results paging is done client-side. The resulting page may be too heavy for older computer and smartphones. Chrome on Android is known to hang when there are too many results. Firefox works quite well, though.
 
 
 ## Testing

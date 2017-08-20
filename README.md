@@ -4,6 +4,14 @@ A Python3, Flask-based torrent search engine based on qBittorrent's.
 
 ![Screenshot](screenshot.png)
 
+Table of Contents
+=================
+
+   * [Novask Torrent Search](#novask-torrent-search)
+      * [Testing](#testing)
+      * [Deploying](#deploying)
+
+
 ## Testing
 
 #### Make sure SQLite3 is installed

@@ -4,6 +4,20 @@ A Python3, Flask-based torrent search engine based on qBittorrent's.
 
 ![Screenshot](screenshot.png)
 
+#### Important security/legal notes
+
+Search plugins may allow to download content that is illegal in some countries. Novask's developers and contributors discourage this and take absolutely no responsibility for what you do with this program.
+
+Novask allows to download torrents without having to go through the original websites' advertisements, etc.
+This may infringe their terms of service. It is your responsibility not to use any search plugins that may cause complaints, etc.
+
+Novask has not been tested for security. As of now, if somebody gets access to your Novask instance, they could easily run a DoS attack on your server as simply as spawning a little too many search jobs. Also, search plugins may not be safe: always read their source code before using them.
+
+You may want to create a separate, restricted user for Novask and use some process management techniques such as process groups to limit such vulnerabilities.
+
+If you install Novask on a publicly accessible web server, always make sure it's password protected so that only **you** can use it.
+
+
 Table of Contents
 =================
 

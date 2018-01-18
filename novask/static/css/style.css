@@ -103,3 +103,7 @@ ul#dropdown-engines li a.dropdown-item {
 .dl-td {
     text-align: center;
 }
+
+.input-group-btn button.btn {
+    color: black;
+}

@@ -48,13 +48,14 @@ sudo apt install sqlite3
 
 ```sh
 git clone https://github.com/Depaulicious/Novask
+cd Novask
+git submodule update
 ```
 
 #### Install Novask in development mode
 You may need to run `pip3` as root, or use just `pip`. Note that Python2 *should* work but is not supported.
 
 ```sh
-cd Novask
 pip3 install -e .
 ```
 
